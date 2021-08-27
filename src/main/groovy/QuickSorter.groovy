@@ -16,7 +16,9 @@ class QuickSorter {
         while (P < Q) {
             do if (++P > high) break while (array[P] <= pivot)
             do {
-                if (--Q < low) { Q = low; break }
+                if (--Q < low) {
+                    Q = low; break
+                }
             } while (array[Q] > pivot)
             if (P < Q) swap(P, Q, array)
         }
