@@ -14,36 +14,11 @@ class QuickSorter {
         final pivot = array[low]
         def P = low - 1, Q = high + 1
         while (P < Q) {
-//            while (true) {
-//                P = P + 1
-//                if (P > high) break
-//                if (array[P] <= pivot) break
-//            }
-//
-//            while (true) {
-//                Q = Q - 1
-//                if (Q < low) {
-//                    Q = low
-//                    break
-//                }
-//
-//                if (array[Q] > pivot) break
-//            }
-//
+            do if (++P > high) break while (array[P] <= pivot)
             do {
-                if (++P > high)
-                    break
-            } while (array[P] <= pivot)
-
-            do {
-                if (--Q < low) {
-                    Q = low
-                    break
-                }
+                if (--Q < low) { Q = low; break }
             } while (array[Q] > pivot)
-
-            if (P < Q)
-                swap(P, Q, array)
+            if (P < Q) swap(P, Q, array)
         }
 
         swap(low, Q, array)
