@@ -1,5 +1,11 @@
-import static QuickSorter.QSortTypes.*
+final random = new Random()
 
-list = new int[]{73, 4296, 8, 53, 6, 112, 0, 0, 1, 25, 6, 1245, 6, 1, 2, 54, 1, 238, 65}
-QuickSorter.apply(SIMPLE_FIRST_PIVOTED, list)
-println list
+final supplier = () -> {
+    final array = new List<Integer>[16]
+    (0..15).each {
+        array[it] = random.ints(1000, 20000, 50000).collect { it }
+    }
+    return array
+}
+
+print supplier()
